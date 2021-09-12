@@ -7,17 +7,18 @@ def print_structure(leters_said = [], word= "cafe"):
         print("\n")
 
         for leter in word:
-            back_slash = (lambda leter,leters_said : leter if leter in leters_said else "_", leter,leters_said) #put or not the back slash
-            print(back_slash,end="")
+            back_slash = (lambda leter,leters_said : leter if leter in leters_said else "_") #put or not the back slash
+            print(back_slash(leter,leters_said),end="")
 
         print("\n")
 
 def end(word):
     print(f"gracias por jugar la palabra era {word}")
 
-def game(leters_said,word,word_list = [i for i in word]):
+def game(leters_said,word):
+    word_list = [i for i in word]
     print_structure(leters_said,word)
-    end(word) if [for i in word_list] else None
+    end(word) if [i for i in word_list] else None
     leter_imput = input("pon la letra: ") #problem of loop
     if leter_imput not in leters_said:
         leters_said.append(leter_imput)
@@ -35,7 +36,7 @@ def game(leters_said,word,word_list = [i for i in word]):
 def run():
     word_ = "cafe"
     leters_said_ = []
-    game(word_,leters_said_)
+    game(leters_said_,word_)
 
     
     
