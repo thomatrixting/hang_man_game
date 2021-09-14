@@ -5,24 +5,22 @@ from functools import reduce
 
 def run():
     def select_word():
-        adjusted_word = {"Ã³":"o", "Ã±": "ñ", "Ã©" : "e", "Ã":"i" }
+        to_replace = {"Ã³":"o", "Ã±": "ñ", "Ã©" : "e", "Ã":"i" }
         with open("Words.txt","r",encoding="utf-8") as file:
             words = [line for line in file.readlines()]
             words = list(map(lambda word : word.strip(),words)) # remove the \n
             words = list(enumerate(words)) #enumerate the words s
-        with open("Words.txt","r",encoding="utf-8") as file:
-            N_lines =  reduce(lambda a, b: a + b,[1 for line in file])
-            line_choser  = random.randint(1, N_lines+1)
-        word = ([item[1] for item in words if item[0] == line_choser]) #return the word wer
-        word = list(map(lambda leter: adjusted_word[leter] if leter in adjusted_word.keys() else leter,word)) #change the wrong leters
 
+        line_choser  = random.randint(1, words[-1][0]+1) 
+        word = "".join([item[1] for item in words if item[0] == line_choser]) #return the word wer
+        for a,b in to_replace.items():
+            word = word.replace(a,b)
         return "".join(word)
             
-
     print(select_word())
 
 
-
+    #lambda leter_said,leter: leter if leter in leter_said else "_"
 
 
 if __name__ == '__main__':
