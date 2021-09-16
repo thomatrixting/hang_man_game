@@ -5,7 +5,6 @@ def print_structure(leters_said = [], word= "cafe"):
         os.system("cls")
         print("!adivina la palabra¡")
         print("\n")
-
         for leter in word:
             back_slash = (lambda leter,leters_said : leter if leter in leters_said else "_") #put or not the back slash
             print(back_slash(leter,leters_said),end="")
