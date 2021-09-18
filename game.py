@@ -1,9 +1,8 @@
 import os
-import time
+# import time
 import random
-<<<<<<< HEAD
 import sys
-from functools import reduce
+# from functools import reduce
 
 def select_word():
     to_replace = {"Ã³":"o", "Ã±": "ñ", "Ã©" : "e", "Ã":"i" }
@@ -28,7 +27,7 @@ def print_estucture(word = select_word()):
     leter_said = []
     while True:
         os.system("clear")
-        if word in leter_said: next_game(word)
+        if sum([letra in leter_said for letra in word]) == len(word): next_game(word)
         print("!adivina la palabra¡")
         print("\n")
         back_slash = "".join(["_" if leter not in leter_said else leter for leter in word])
@@ -37,28 +36,7 @@ def print_estucture(word = select_word()):
         leter_said.append(user_leter)
 
 def run():
-    print_estucture("cafe")
-=======
-from functools import reduce
-
-def run():
-    def select_word():
-        with open("Words.txt","r",encoding="utf-8") as file:
-            words = [line for line in file.readlines()]
-            words = list(map(lambda word : word.strip(),words)) # remove the \n
-            words = list(enumerate(words))
-            print(words)
-        with open("Words.txt","r",encoding="utf-8") as file:
-            N_lines =  reduce(lambda a, b: a + b,[1 for line in file])
-            line_choser  = random.randint(1, N_lines+1)
-            return [item[1] for item in words if item[0] == line_choser]
-            
-
-    print(select_word())
-
-
-
->>>>>>> 7ccaba88cd8789fc5bf1851c89864f70fad6b84e
+    print_estucture()
 
 
 if __name__ == '__main__':
