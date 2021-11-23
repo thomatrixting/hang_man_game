@@ -27,14 +27,14 @@ def print_estucture(word = select_word()):
     leter_said = []
     while True:
         os.system("clear")
-        if sum([letra in leter_said for letra in word]) == len(word): next_game(word)
+        if sum([letra in leter_said for letra in word]) == len(word): next_game(word);break
         print("!adivina la palabra¡")
         print("\n")
         back_slash = "".join(["_" if leter not in leter_said else leter for leter in word])
         print(back_slash)
         user_leter = input("put a leter: ")
         leter_said.append(user_leter)
-
+    
 def run():
     print_estucture()
 
