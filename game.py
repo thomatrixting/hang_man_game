@@ -29,7 +29,7 @@ def print_estucture(word = select_word()):
     word = list(word)
     while True:
         os.system("clear")
-        if sum([letra in leter_said for letra in word]) == len(word): next_game(word)
+        if sum([letra in leter_said for letra in word]) == len(word): next_game(word);break
         print("!adivina la palabra¡")
         print(word)
         print("\n")
