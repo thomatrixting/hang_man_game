@@ -26,13 +26,12 @@ def next_game(word):
 
 def print_estucture(word = select_word()):
     leters_said = set()
-    word = list(word)
+    word = word
     word_set = set(word)
     while True:
         os.system("clear")
-        if leters_said in word_set: next_game(word);break
+        if leters_said == word_set: next_game(word);break
         print("!adivina la palabra¡")
-        print(word)
         print("\n")
         back_slash = "".join(["_" if leter not in leters_said else leter for leter in word])
         print(back_slash)
